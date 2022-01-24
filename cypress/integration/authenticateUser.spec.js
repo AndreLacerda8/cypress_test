@@ -18,14 +18,14 @@ describe('Authenticate User', () => {
 
   it('should go to /dashboard when email and password correct', () => {
     cy.visit('http://localhost:3000')
-    cy.get('[type="email"]').type('incorrect@mail.com')
-    cy.get('[type="password"]').type('incorrectpassword')
+    cy.get('[type="email"]').type('correct@mail.com')
+    cy.get('[type="password"]').type('correctpassword')
     cy.intercept('POST', '/login', {
       statusCode: 200,
       body: {
         user: {
           id: 0,
-          email: "mail@mail.com",
+          email: "correct@mail.com",
           is_admin: 0,
           name: "Name",
           token: "token",
