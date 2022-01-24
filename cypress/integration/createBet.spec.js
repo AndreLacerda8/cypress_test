@@ -17,4 +17,16 @@ describe('Create bet', () => {
       cy.get('.sc-cidDSM > p').invoke('text').should('include', selectedNumbers)
     })
   })
+
+  it('should add correct infos in cart', () => {
+    window.localStorage.setItem('authTokenLottery', 'token')
+    cy.visit('http://localhost:3000/newbet')
+    cy.get('.jIKGnW').click()
+    cy.get('.sc-ikJyIC > :nth-child(1)').click()
+    cy.get('.sc-hiCibw').click()
+    cy.get('div > h4').contains('Mega-Sena')
+    cy.get('.sc-cidDSM > div > span').invoke('text').then(singlePrice => {
+      cy.get('.sc-iAKWXU').should('include.text', singlePrice)
+    })
+  })
 })
