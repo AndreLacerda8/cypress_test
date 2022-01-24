@@ -17,7 +17,7 @@ describe('Save Bet', () => {
     cy.get('.sc-ezbkAF').contains('The value min authorized is R$ 30,00')
   })
 
-  it('should be save bets when its all correct', () => {
+  it('should navigate to /dashboard when its all correct', () => {
     window.localStorage.setItem('authTokenLottery', 'token')
     cy.visit('http://localhost:3000/newbet')
     cy.get('.eidyyN').click()
